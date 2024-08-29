@@ -1,6 +1,6 @@
-fun main() {
-    var str = "bonjour"
-    if (str.length < 0) {
+fun main(args : Array<String>) {
+    var str = args[0]
+    if (args.isEmpty()) {
         print("string vide")
     }
     else
@@ -10,7 +10,7 @@ fun main() {
                 print(str[i])
                 println()
             } catch (e: Exception) {
-                
+
             }
         }
     }
