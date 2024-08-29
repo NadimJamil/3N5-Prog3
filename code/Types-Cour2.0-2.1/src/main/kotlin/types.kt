@@ -6,6 +6,6 @@ fun main(){
     val c = "1"                                 // type est Char --> String
     val d = true                                // type est Bool
     val laChose = c + b                         // type est String
-    val k = listOf("1", "2", "3")               // type est Char[] --> ERROR
-    val l = mutableListOf(true, false, true)    // type est Bool[] --> ERROR
+    val k = listOf("1", "2", "3")               // type est Char[] --> List<String>
+    val l = mutableListOf(true, false, true)    // type est Bool[] --> mutableList
 }
