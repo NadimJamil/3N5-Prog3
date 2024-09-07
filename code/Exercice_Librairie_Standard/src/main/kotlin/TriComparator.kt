@@ -4,16 +4,11 @@ fun main() {
 }
 
 fun triComplexe(liste: List<Int>): List<Int> {
-    var nvListe = mutableListOf<Int>()
-    var nbSept = liste.count({it == 7})
-    var test = liste.sortedWith(compareBy({it == 7}, {it}))
-    for(i in 0..liste.size -1){
-        for(j in 0..liste.size - i - 2){
-            if(liste[j] - liste[j + 1] > 7){
-                nvListe.add(liste[j])
-            }
-        }
-    }
+    var nvListe = liste.sortedWith(compareBy({ cptSept(it) }, {it}))
     println(nvListe)
-    return  liste
+    return nvListe
+}
+
+fun cptSept(number : Int) : Int{
+    return number.toString().count { it == '7'}
 }
