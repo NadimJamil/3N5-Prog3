@@ -6,11 +6,13 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.albums.databinding.MonAlbumBinding
+import com.example.albums.models.Album
 
-class MonAdapter : ListAdapter<String, MonAdapter.MonAlbumViewHolder>(MonItemDiffCallback){
+class MonAdapter : ListAdapter<Album, MonAdapter.MonAlbumViewHolder>(MonItemDiffCallback){
     inner class MonAlbumViewHolder(private val binding : MonAlbumBinding) : RecyclerView.ViewHolder(binding.root){
-        fun bind(item : String){
-            binding.albumId.text = item
+        fun bind(album : Album){
+            binding.albumId.text = album.name
+            binding.descAlbumId.text = album.artistName
         }
     }
 
@@ -20,17 +22,18 @@ class MonAdapter : ListAdapter<String, MonAdapter.MonAlbumViewHolder>(MonItemDif
     }
 
     override fun onBindViewHolder(holder: MonAlbumViewHolder, position: Int) {
-        val item : String = getItem(position)
-        holder.bind(item)
+        holder.bind(getItem(position))
     }
 }
 
-object MonItemDiffCallback : DiffUtil.ItemCallback<String>() {
-    override fun areItemsTheSame(oldItem: String, newItem: String): Boolean {
+object MonItemDiffCallback : DiffUtil.ItemCallback<Album>() {
+    override fun areItemsTheSame(oldItem: Album, newItem: Album): Boolean {
         return oldItem == newItem
     }
 
-    override fun areContentsTheSame(oldItem: String, newItem: String): Boolean {
-        return oldItem == newItem
+    override fun areContentsTheSame(oldItem: Album, newItem: Album): Boolean {
+        return oldItem.id == newItem.id &&
+                oldItem.name == oldItem.name &&
+                oldItem.artistName == oldItem.artistName
     }
 }

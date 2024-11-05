@@ -21,4 +21,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "Albums"
 include(":app")
+include(":app")
  
