@@ -1,18 +1,28 @@
 package com.example.albums.Adapters
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.example.albums.PageDetail
 import com.example.albums.databinding.MonAlbumBinding
 import com.example.albums.models.Album
 
 class MonAdapter : ListAdapter<Album, MonAdapter.MonAlbumViewHolder>(MonItemDiffCallback){
     inner class MonAlbumViewHolder(private val binding : MonAlbumBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(album : Album){
-            binding.albumId.text = album.name
-            binding.descAlbumId.text = album.artistName
+            binding.nomAlbumId.text = album.name
+            binding.nomArtisteId.text = album.artistName
+
+            binding.AlbumId.setOnClickListener{
+                val intent = Intent(binding.root.context, PageDetail::class.java)
+                intent.putExtra("id", album.id)
+                intent.putExtra("name", album.name)
+                intent.putExtra("artistName", album.artistName)
+                binding.root.context.startActivity(intent)
+            }
         }
     }
 

@@ -37,22 +37,14 @@ class MainActivity : AppCompatActivity() {
         val items : MutableList<Album> = mutableListOf()
         val listAlbum = listOf<String>("Antigéographiquement", "J'ai Bu", "Comment Debord", "Darlène", "La Nuit Est Une Panthère", "Jaune", "Thriller", "Imagine", "Animals")
         val listChanteur = listOf<String>("Jérôme Charette-Pépin", "Québec Redneck Bluegrass Project", "Comment Debord", "Hubert Lenoir", "Les Louanges", "Jean-Pierre Ferland", "Michael Jackson", "John Lennon", "Pink Floyd")
-        for (i in 1..listAlbum.count()){
-            for (a in 0..listAlbum.size-1){
-                for (n in 0..listChanteur.size-1){
-                    val nomAlbum = listAlbum[a]
-                    val nomChanteur = listChanteur[n]
-                    items.add(Album(i, nomAlbum, nomChanteur))
 
-                }
-                if (items.size >= listAlbum.count()){
-                    break
-                }
+            for (a in 0 until listAlbum.size){
+                    val nomAlbum = listAlbum[a]
+                    val nomChanteur = listChanteur[a % listChanteur.size]
+                    items.add(Album(a, nomAlbum, nomChanteur))
+
+
             }
-            if (items.size >= listAlbum.count()){
-                break
-            }
-        }
         adapter.submitList(items)
     }
 }

@@ -2,17 +2,18 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="150dp"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:id="@+id/AlbumId">
 
     <TextView
-        android:id="@+id/albumId"
+        android:id="@+id/nomAlbumId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:textSize="20dp">
     </TextView>
     <TextView
-        android:id="@+id/descAlbumId"
+        android:id="@+id/nomArtisteId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
