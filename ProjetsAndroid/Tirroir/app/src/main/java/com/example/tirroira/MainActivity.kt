@@ -43,7 +43,6 @@ class MainActivity : AppCompatActivity() {
         binding.nvTiroir.setNavigationItemSelectedListener { item ->
             when (item.itemId){
                 R.id.accueil_item -> {
-                    Snackbar.make(binding.root, "test acuueol", Snackbar.LENGTH_SHORT).show()
                     System.exit(0)
                 }
                 R.id.profil_item -> {
